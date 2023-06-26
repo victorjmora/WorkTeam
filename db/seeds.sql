@@ -9,7 +9,7 @@ INSERT INTO department (name) VALUES
 ('Management');
 
 -- create the seeds for the roles
-INSERT INTO roles (title, salary, department_id) VALUES
+INSERT INTO role (title, salary, department_id) VALUES
 ('Sales Lead', 50000, 1),
 ('Sales Associate', 60000, 1),
 ('Sales Representative', 30000, 1),
@@ -26,10 +26,9 @@ INSERT INTO roles (title, salary, department_id) VALUES
 ('Manager', 100000, 7);
 
 -- create  the seeds for the employees
-INSERT INTO employees (first_name, last_name, role_id, manager_id, department_id, salary) 
+INSERT INTO employee (first_name, last_name, role_id, manager_id, salary) 
 VALUES
---sort the employees by department--
-('Walter', 'White', 1, 1, 50000.00),                     --
+('Walter', 'White', 1, 1, 50000.00),                    
 ('Gus', 'Fring', 2, 1, 50000.00),                       
 ('Jesse', 'Pinkman', 3, 1, 50000.00),
 ('Skylar', 'White', 3, 2, 50000.00),
@@ -48,5 +47,5 @@ VALUES
 ('Dexter', 'Morgan', 3, 15, 50000.00),
 ('Debra', 'Morgan', 3, 16, 50000.00),
 ('Angel', 'Batista', 3, 17, 50000.00),
-('Maria', 'LaGuerta', 3, 18, 50000.00),
+('Maria', 'LaGuerta', 3, 18, 50000.00);
 

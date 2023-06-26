@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS workTeam_db;
-CREATE DATABASE employeetracker_db;
+CREATE DATABASE workTeam_db;
 
 USE workTeam_db;
 DROP TABLE IF EXISTS employee;
@@ -20,10 +20,10 @@ CREATE TABLE role (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(30) NOT NULL,
     salary DECIMAL(10,2) NOT NULL,
-    department_id INT NOT NULL
-    PRIMARY KEY (id)
-    FOREIGN KEY (department_id)
-    REFERENCES department (id)
+    department_id INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (department_id) REFERENCES department(id)
+    
 );
 
 -- create the eployee table
@@ -34,9 +34,8 @@ CREATE TABLE employee (
     role_id INT,
     manager_id INT,
     salary DECIMAL(10,2) NOT NULL,
-    PRIMARY KEY (id)
-    FOREIGN KEY (role_id),
-    REFERENCES role (id),
-    FOREIGN KEY (manager_id),
-    REFERENCES manageR (id)
+    PRIMARY KEY (id),
+    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(id),
+    CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id)
+
 );

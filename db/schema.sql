@@ -1,5 +1,6 @@
 DROP DATABASE IF EXISTS workTeam_db;
 CREATE DATABASE workTeam_db;
+--CREATE DATABASE IF NOT EXISTS workTeam_db;
 
 USE workTeam_db;
 DROP TABLE IF EXISTS employee;
@@ -39,3 +40,11 @@ CREATE TABLE employee (
     CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id)
 
 );
+
+CREATE TABLE manager (
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    role_id INT NOT NULL,
+    PRIMARY KEY (id)
+    );

@@ -25,6 +25,18 @@ INSERT INTO role (title, salary, department_id) VALUES
 ('Research Associate', 80000, 6),
 ('Manager', 100000, 7);
 
+-- create the seeds for the managers
+INSERT INTO manager (first_name, last_name, role_id)
+VALUES
+    ('James', 'Anderson', 1),
+    ('Sophie', 'Walker', 1),
+    ('Matthew', 'Thompson', 1),
+    ('Isabella', 'Harris', 1),
+    ('Daniel', 'Wilson', 1),
+    ('Olivia', 'Garcia', 1),
+    ('Benjamin', 'Davis', 1),
+    ('Emily', 'Clark', 1);
+
 -- create  the seeds for the employees
 INSERT INTO employee (first_name, last_name, role_id, manager_id, salary) 
 VALUES

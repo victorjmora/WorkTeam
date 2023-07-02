@@ -13,10 +13,16 @@ function start() {
         "View all departments",
         "View all roles",
         "View all employees",
+        "View employees by manager",
+        "View Employees by department",
         "Add a department",
         "Add a role",
         "Add an employee",
         "Update an employee role",
+        "Update an employee manager",
+        "Delete a department",
+        "Delete a role",
+        "Delete an employee",
         "Quit",
       ],
     })
@@ -27,6 +33,12 @@ function start() {
           break;
         case "View all roles":
           viewAllRoles();
+          break;
+          case "View employees by manager":
+          viewEmployeesByManager();
+          break;
+          case "View employees by department":
+          viewEmployeesByDepartment();
           break;
         case "View all departments":
           viewAllDepartments();
@@ -43,6 +55,9 @@ function start() {
           break;
         case "Update an employee role":
           updateEmployee();
+          break;
+          case "Update an employee manager":
+          updateEmployeeManager();
           break;
         case "delete an employee":
           deleteEmployee();
@@ -190,7 +205,7 @@ function addDepartment() {
       },
     ])
     .then((answers) => {
-      const { title } = answer;
+      const { title } = answers;
       const query = `INSERT INTO department (title) VALUES (?)`;
       connection.query(query, title, (err, res) => {
         if (err) throw err;

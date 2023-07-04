@@ -31,7 +31,6 @@ function start() {
         case "View all departments":
           viewAllDepartments();
           break;
-
         case "Add a department":
           addDepartment();
           break;
@@ -130,7 +129,7 @@ function addEmployee() {
         department_id,
         salary,
       } = answers;
-      const query = `INSERT INTO employee (first_name, last_name, role_id, manager_id, department_id, salary) VALUES (?, ?, ?, ?, ?, ?)`;
+      const query = `INSERT INTO employee (first_name, last_name, role_id, manager_id, salary) VALUES (?, ?, ?, ?, ?)`;
       connection.query(
         query,
         [first_name, last_name, role_id, manager_id, salary],
@@ -191,7 +190,7 @@ function addDepartment() {
     ])
     .then((answers) => {
       const { title } = answers;
-      const query = `INSERT INTO department (title) VALUES (?)`;
+      const query = `INSERT INTO department (name) VALUES (?)`;
       connection.query(query, title, (err, res) => {
         if (err) throw err;
         console.log("Department added successfully");
@@ -204,7 +203,7 @@ function updateEmployeeRole() {
   inquirer
     .prompt([
       {
-        name: "employee_id",
+        name: "id",
         type: "input",
         message: "what is the employee's id?",
       },
@@ -216,8 +215,8 @@ function updateEmployeeRole() {
     ])
     .then((answers) => {
       const { id, role_id } = answers;
-      const query = `UPDATE employee SET role_id = ? WHERE id = ?`;
-      connection.query(query[(id, role_id)], (err, res) => {
+      const query = `UPDATE employee SET role_id = ? WHERE ID = ?`;
+      connection.query(query, [id, role_id], (err, res) => {
         if (err) throw err;
         console.log("Employee role updated successfully");
         start();

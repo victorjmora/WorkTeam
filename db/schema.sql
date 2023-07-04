@@ -27,6 +27,14 @@ CREATE TABLE role (
     
 );
 
+CREATE TABLE manager (
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    role_id INT NOT NULL,
+    PRIMARY KEY (id)
+    );
+
 -- create the eployee table
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT,
@@ -37,14 +45,6 @@ CREATE TABLE employee (
     salary DECIMAL(10,2) NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(id),
-    CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id)
+    CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES manager(id)
 
 );
-
-CREATE TABLE manager (
-    id INT NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
-    role_id INT NOT NULL,
-    PRIMARY KEY (id)
-    );

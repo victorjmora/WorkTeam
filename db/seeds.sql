@@ -1,5 +1,5 @@
 -- create the seeds for the departments 
-/INSERT INTO department (name) VALUES
+INSERT INTO department (name) VALUES
 ('Sales'),
 ('Engineering'),
 ('Finance'),
@@ -9,7 +9,7 @@
 ('Management');
 
 -- create the seeds for the roles
-INSERT INTO roles (title, salary, department_id) VALUES
+INSERT INTO role (title, salary, department_id) VALUES
 ('Sales Lead', 50000.00, 1),
 ('Sales Associate', 60000.00, 1),
 ('Sales Representative', 30000.00, 1),
@@ -39,7 +39,7 @@ INSERT INTO manager (first_name, last_name, role_id) VALUES
 -- create  the seeds for the employees
 INSERT INTO employee (first_name, last_name, role_id, manager_id, salary) VALUES
 ('Walter', 'White', 1, 1, 50000.00),                    
-('Gus', 'Fring', 2, 6, 50000.00),                       
+('Gus', 'Fring', 2, 1, 50000.00),                       
 ('Jesse', 'Pinkman', 3, 5, 50000.00),
 ('Skylar', 'White', 3, 4, 50000.00),
 ('Hank', 'Schrader', 3, 1, 50000.00),
